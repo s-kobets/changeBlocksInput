@@ -1,0 +1,9 @@
+{
+  "extends": [
+    "xo",
+    "plugin:xo/recommended"
+  ],
+  "plugins": [
+    "xo"
+  ]
+}
