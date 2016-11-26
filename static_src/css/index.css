@@ -11,3 +11,7 @@ body {
 	margin: 0;
 	background: #ccc;
 }
+
+.questionnaire-img_4 img {
+	// background: url('../img/1-4.jpg');
+}

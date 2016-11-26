@@ -6,10 +6,11 @@ const ExtractTextPlugin = require ('extract-text-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-    entry: "./static_src/js/index.js",
+    entry: './static_src/js/index.js',
     output: {
         path: __dirname + "/public",
-        filename: "index.js"
+        filename: "index.js",
+        publicPath: "/"
         // library: "ScrollTo" // global name
     },
 
@@ -30,10 +31,11 @@ module.exports = {
         new ExtractTextPlugin('index.css'),
         //one HTML file
         new HtmlWebpackPlugin({
+            filename: 'index.html',
             inject : true,
             devServer: 'http://localhost:8080',
-            template: './static_src/index.html',
-            chunks: ['vendor']
+            template: './static_src/index.jade',
+            chunks: 'filename'
         })
     ],
 
@@ -61,10 +63,15 @@ module.exports = {
                 test: /\.css$/,
                 loader: ExtractTextPlugin.extract('style-loader', 'css-loader')
             },
+            // html
+            {
+              test: /\.jade$/,
+              loader: 'jade'
+            },
             // Copy images
             {
                 test: /\.(png|jpg|gif|svg)/,
-                loader: "file-loader?name=[hash:6].[ext]"
+                loader: "file-loader?name=[path][name].[ext]"
             },
             // Copy fonts
             {
