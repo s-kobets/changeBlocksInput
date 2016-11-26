@@ -3,6 +3,7 @@
 const NODE_ENV = process.env.NODE_ENV || "development";
 const webpack = require('webpack');
 const ExtractTextPlugin = require ('extract-text-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
     entry: "./static_src/js/index.js",
@@ -26,7 +27,14 @@ module.exports = {
             NODE_ENV : JSON.stringify(NODE_ENV),  //делает строковым типом
             LANG     : JSON.stringify('ru')
         }),
-        new ExtractTextPlugin('index.css') 
+        new ExtractTextPlugin('index.css'),
+        //one HTML file
+        new HtmlWebpackPlugin({
+            inject : true,
+            devServer: 'http://localhost:8080',
+            template: './static_src/index.html',
+            chunks: ['vendor']
+        })
     ],
 
     resolve: { //указывает где искать модули, например ./static_src/scripts/main.js
