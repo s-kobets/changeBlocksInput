@@ -1,0 +1,127 @@
+@font-face
+  font-family: 'OpenSans';
+  src: url('../fonts/OpenSans-Regular.ttf')
+
+@font-face
+  font-family: 'OpenSans';
+  src: url('../fonts/OpenSans-Bold.ttf')
+
+*
+    font-family: 'OpenSans', Arial, sans-serif
+
+body
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+
+.questionnaire
+  &-radio_none
+    display none
+
+    &:checked + span
+      display: block;
+
+  &-img_4
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+
+    & > span
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: none;
+      width: 100%;
+      height: 123px;
+      background: rgba(1, 99, 99, 0.5);
+      z-index: 2;
+
+      &::before
+        content: '';
+        position: absolute;
+        top: calc(50% - 33px);
+        left: calc(50% - 35px);
+        display: inline-block;
+        width: 70px;
+        height: 66px;
+        background: url('../img/access.png') no-repeat center center;
+    
+    &:hover > span
+      display: block;
+
+    & img
+      display: inline-block;
+      width: 177px;
+      height: 123px;
+
+  &-block-button
+    display: flex;
+    justify-content: center;
+
+    a:first-of-type
+      margin-right 30px
+  
+  &-button
+    display: inline-block;
+    padding: 7px 0;
+    margin: 0;
+    width: 165px;
+    font-size: 13px;
+    line-height: 18px;
+    border: 1px solid #ccc;
+    background: none;
+    color: #000;
+    text-align: center;
+    vertical-align: middle;
+    text-decoration: none;
+    white-space: nowrap;
+    cursor: pointer;
+    box-sizing: border-box;
+
+    &:hover
+      border-color: #ffb100;
+      background: rgba(251, 203, 93, 0.07);
+
+.block-flex
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+
+  &_img_4
+    margin: 20px 0;
+
+  .questionnaire-img_4
+    margin-right: 22px;
+
+    &:nth-of-type(4n)
+      margin-right: 0;
+
+    &:nth-of-type(n + 5)
+      margin-top: 20px;
+
+.questionnaire-progress
+  position: relative;
+  margin-bottom: 30px;
+  height: 34px;
+  width: 100%;
+  text-align: center;
+  background: #f1fafb;
+
+  &_bar
+    position: absolute;
+    left: 0;
+    top: 0;
+    display: block;
+    width: 0;
+    height: 34px;
+    background: #d8eff1;
+    transition: all 0.2s ease-in-out;
+  
+  &_index
+    position: absolute;
+    left: calc(50% - 20px);
+    top: 5px;
+    display: inline-block;
+    width: 40px;
+    font: bold 18px/20px 'OpenBold', Arial, sans-serif;
+    color: #ccc;

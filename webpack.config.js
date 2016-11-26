@@ -9,8 +9,7 @@ module.exports = {
     entry: './static_src/js/index.js',
     output: {
         path: __dirname + "/public",
-        filename: "index.js",
-        publicPath: "/"
+        filename: "index.js"
         // library: "ScrollTo" // global name
     },
 
@@ -28,7 +27,7 @@ module.exports = {
             NODE_ENV : JSON.stringify(NODE_ENV),  //делает строковым типом
             LANG     : JSON.stringify('ru')
         }),
-        new ExtractTextPlugin('index.css'),
+        new ExtractTextPlugin('[name].css', {allChunks: true}),
         //one HTML file
         new HtmlWebpackPlugin({
             filename: 'index.html',
@@ -62,6 +61,11 @@ module.exports = {
             {
                 test: /\.css$/,
                 loader: ExtractTextPlugin.extract('style-loader', 'css-loader')
+            },
+            // stylus
+            {
+              test:   /\.styl$/,
+              loader: ExtractTextPlugin.extract('css!autoprefixer?browsers=last 2 versions!stylus?resolve url')
             },
             // html
             {

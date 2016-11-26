@@ -1,4 +1,4 @@
-import '../css/index.css'
+import '../css/index.styl'
 
 import template from '../index.jade'
 

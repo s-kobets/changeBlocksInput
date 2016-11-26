@@ -1,0 +1,24 @@
+.questionnaire-progress
+	span.questionnaire-progress_index 0/10
+
+.block-flex.block-flex_img_4
+	label.questionnaire-img_4(for='slide-radio-img1')
+		input#slide-radio-img1.questionnaire-radio_none(type='radio', name='slide-img', value='1')
+		span
+		img(src='static_src/img/1-4.jpg')
+	label.questionnaire-img_4(for='slide-radio-img2')
+		input#slide-radio-img2.questionnaire-radio_none(type='radio', name='slide-img', value='2')
+		span
+		img(src='static_src/img/1-4.jpg')
+	label.questionnaire-img_4(for='slide-radio-img3')
+		input#slide-radio-img3.questionnaire-radio_none(type='radio', name='slide-img', value='3')
+		span
+		img(src='static_src/img/1-4.jpg')
+	label.questionnaire-img_4(for='slide-radio-img4')
+		input#slide-radio-img4.questionnaire-radio_none(type='radio', name='slide-img', value='4')
+		span
+		img(src='static_src/img/1-4.jpg')
+
+.questionnaire-block-button
+	a.questionnaire-button(href="javascript:void(0)") ← Назад
+	a.questionnaire-button(href="#" onclick="document.getElementById('questionnaire-form').submit(); return false;") Дальше →
