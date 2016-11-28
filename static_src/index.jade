@@ -1,3 +1,5 @@
+include template/mixin/mixin
+
 doctype html
 html(lang='en')
 	head
@@ -5,14 +7,16 @@ html(lang='en')
 		title Document
 
 	body
-		.block-slide
+		form#js-form.block-slide(action='#' method='POST')
 			#slide1
 				include template/blocks/slide1
 			#slide2
-				include template/blocks/slide2
+				+questionnaire-slide(2, false, 'radio2')#radio2(value='21')
 			#slide3
-				include template/blocks/slide2
+				+questionnaire-slide(3, false, 'radio3')#radio3(value='31')
 			#slide4
-				include template/blocks/slide2
+				+questionnaire-slide(4, false, 'radio4')#radio4(value='41')
 			#slide5
-				include template/blocks/slide2
+				+questionnaire-slide(5, false, 'radio5')#radio5(value='51')
+			#slide6
+				+questionnaire-slide(6, true)

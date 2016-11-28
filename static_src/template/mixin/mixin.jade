@@ -1,0 +1,23 @@
+mixin questionnaire-slide(num, flag, forR)
+	.questionnaire-progress
+		if num == 6
+			span.questionnaire-progress_index 2/3
+
+		else
+			span.questionnaire-progress_index 1/3
+
+	.block-flex.block-flex_img_4
+		h1 Слайд #{num}
+	
+	.block-flex.block-flex_img_4
+		label(for=forR)
+				input(type='radio' name='radio-button')&attributes(attributes)
+				| Выбор #{num}
+	.questionnaire-block-button
+		a.questionnaire-button(href="#slide1") ← Назад
+
+		if flag
+			a.questionnaire-button(href="" onclick="document.getElementById('js-form').submit(); return false;") Отправить
+
+		else
+			a.questionnaire-button(href="#slide6") Дальше →
